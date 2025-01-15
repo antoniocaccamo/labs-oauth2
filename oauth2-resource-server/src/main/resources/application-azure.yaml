@@ -1,0 +1,15 @@
+
+server.port : 9090
+
+spring.cloud:
+    azure:
+      active-directory:
+        enabled: true
+        profile:
+          tenant-id: 53695c6a-****
+        credential:
+          client-id: 1b5a6020-*****
+        app-id-uri: "api://1b5a6020-****"
+
+
+

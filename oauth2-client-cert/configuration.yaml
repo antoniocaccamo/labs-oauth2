@@ -1,0 +1,4 @@
+
+tenantId : 53695c6a-****
+authority : https://login.microsoftonline.com/${tenantId}
+clientId : 000000
