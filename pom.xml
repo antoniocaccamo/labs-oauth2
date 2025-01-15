@@ -27,7 +27,7 @@
 		<surefire-plugin.version>3.0.0</surefire-plugin.version>
 
         <azure-sdk-bom.version>1.2.30</azure-sdk-bom.version>
-        <msal4j.version>1.15.0</msal4j.version>
+        <msal4j.version>1.15.1</msal4j.version>
         <azure-identity.version>1.11.1</azure-identity.version>
         <microsoft-graph.version>6.9.0</microsoft-graph.version>
 
