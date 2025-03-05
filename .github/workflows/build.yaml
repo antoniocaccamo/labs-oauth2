@@ -15,4 +15,15 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Set Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Build production bundle
+        run: |
+          cd oauth2-spa
+          yarn install && yarn build
+      
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      
