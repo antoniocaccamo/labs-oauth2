@@ -1,0 +1,5 @@
+spring:
+  security.oauth2.resourceserver.jwt:
+    issuer-uri: https://login.private.antoniocaccamo.work/realms/labs
+    jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+    audiences: lab-backend-api
