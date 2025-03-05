@@ -25,7 +25,7 @@ jobs:
 
       - name: Build with Maven
         run: |
-          ./mvnw -V -B -skipTests package -f pom.xml
+          ./mvnw -V -B -DskipTests package -f pom.xml
           
       - name: Set Node.js 
         uses: actions/setup-node@v3
