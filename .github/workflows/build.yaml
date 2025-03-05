@@ -15,6 +15,15 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Set up JDK 
+        uses: renatoathaydes/setup-java-sdkman@v2.x
+        with:
+          java-version: "23.0.1-tem"
+
+      - name: Build with Maven
+        run: |
+          ./mvnw -V -B package --file pom.xml 
+         
       - name: Set Node.js 
         uses: actions/setup-node@v3
         with:
