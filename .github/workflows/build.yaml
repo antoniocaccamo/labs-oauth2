@@ -15,10 +15,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - name: Set up JDK 
-        uses: renatoathaydes/setup-java-sdkman@v2.x
-        with:
-          java-version: "23.0.1-tem"
+      
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
