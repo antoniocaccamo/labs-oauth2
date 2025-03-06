@@ -18,6 +18,8 @@ package labs.oauth2.client.cert.service;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
+import labs.oauth2.device.code.cache.TokenCacheAspect;
+
 @Slf4j
 class TokenCacheAspectTest {
 
@@ -27,10 +29,10 @@ class TokenCacheAspectTest {
 
         // given
 
-        TokenCacheAspect cache = new TokenCacheAspect();
+        //TokenCacheAspect cache = new TokenCacheAspect();
         // when
 
-        log.info("{} exists? {}",cache.path.toAbsolutePath().toString(), cache.path.toFile().exists());
+        //log.info("{} exists? {}",cache.get.toAbsolutePath().toString(), cache.path.toFile().exists());
         // then
 
     }

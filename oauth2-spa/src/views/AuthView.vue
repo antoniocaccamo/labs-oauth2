@@ -1,17 +1,23 @@
-<template>
-    <div>Authenticating...</div>
-  </template>
+
   
-  <script>
-  export default {
-    name: 'AuthAuthenticated',
-    async mounted() {
-      try {
-        await this.$auth.signinCallback()
-        this.$router.push('/')
-      } catch (e) {
-        console.error(e)
-      }
-    }
+<script setup lang="ts">
+import {getCurrentInstance, onMounted } from "vue"
+ 
+
+onMounted( () =>{
+  try {
+    const auth = getCurrentInstance()?.appContext.config.globalProperties.$auth
+    const router = getCurrentInstance()?.appContext.config.globalProperties.$router
+    auth.signinCallback()
+    router?.push('/')
+  } catch (e) {
+    console.error(e)
   }
-  </script>
+})
+
+</script>
+
+
+<template>
+  <div>Authenticating...</div>
+</template>
