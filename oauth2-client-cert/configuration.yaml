@@ -1,4 +1,4 @@
 
-tenantId : 53695c6a-****
+tenantId : 53695c6a-e1de-42b9-be99-97f60ccfd8b0
 authority : https://login.microsoftonline.com/${tenantId}
 clientId : 000000
