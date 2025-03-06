@@ -11,4 +11,15 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 app.mount('#app')
-app.config.globalProperties.$auth=Auth
+
+
+
+declare module 'vue' {
+    interface ComponentCustomProperties {
+      $$auth: typeof Auth
+      $translate: (key: string) => string
+    }
+  }
+
+
+  app.config.globalProperties.auth=Auth

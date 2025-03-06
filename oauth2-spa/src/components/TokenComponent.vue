@@ -44,18 +44,21 @@
     </div>
   </template>
   
-  <script>
-  import { jwtDecode } from 'jwt-decode'
-  
-  export default {
-    name: 'TokenComponent',
-    props: {
-      user: Object
-    },
-    methods: {
-      stringifyToken(token) {
-        return JSON.stringify(jwtDecode(token), null, 2)
-      }
-    }
-  }
-  </script>
+<script setup lang="ts">
+
+import { jwtDecode } from 'jwt-decode'
+import { User } from 'oidc-client-ts';
+import type { PropType } from 'vue';
+
+    
+defineProps({
+  user: Object as PropType<User>
+})
+
+function stringifyToken(token: string|undefined) {
+    if ( token)
+      return JSON.stringify(jwtDecode(token), null, 2)
+    return;
+}
+
+</script>

@@ -20,29 +20,25 @@
     </div>
   </template>
   
-  <script>
-  import TokenComponent from '../components/Token.vue'
+  <script setup lang="ts">
+  import TokenComponent from '@/components/TokenComponent.vue'
+import { getCurrentInstance, ref } from 'vue'
+
+  const auth = getCurrentInstance()?.appContext.config.globalProperties.$auth
+
+  const user = ref(auth.getUser())  
+
   
-  export default {
-    name: 'UserComponent',
-    components: {
-      TokenComponent
-    },
-    data() {
-      return {
-        user: null,
-        buttonClasses:
-          'rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
-        signIn: () => this.$auth.signinRedirect(),
-        logout: () => this.$auth.signoutRedirect()
-      }
-    },
-    async created() {
-      const user = await this.$auth.getUser()
-      console.log('🚀 ~ created ~ user:', user)
-      if (user) {
-        this.user = user
-      }
-    }
+  const buttonClasses = ref("rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600")
+
+  function signIn()  {
+    auth.signinRedirect();
   }
+
+  function logout () {
+    auth.signoutRedirect()
+  }
+
+  
+
   </script>
