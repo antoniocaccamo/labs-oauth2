@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
 
 import Auth from '@/auth'
 
@@ -27,12 +27,12 @@ const router = createRouter({
     {
       path: '/silent-refresh', // Token silent refresh URI
       name: 'SilentRefresh',
-      component: () => import('../views/SilentRefreshView.vue')
+      component: () => import('@/views/SilentRefreshView.vue')
     },
     {
       path: '/user',
       name: 'User',
-      component:() => import('../views/User.vue'),
+      component:() => import('@/views/User.vue'),
       //meta:{ requiresAuth: true }
     }
     // { // Example of requiring auth on a page.

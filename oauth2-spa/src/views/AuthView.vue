@@ -1,7 +1,7 @@
 
   
 <script setup lang="ts">
-import {getCurrentInstance, onMounted , inject} from "vue"
+import {getCurrentInstance, onMounted } from "vue"
  
 
 onMounted( () =>{
@@ -9,7 +9,7 @@ onMounted( () =>{
     const auth = getCurrentInstance()?.appContext.config.globalProperties.$auth
     const router = getCurrentInstance()?.appContext.config.globalProperties.$router
     auth.signinCallback()
-    router?.push('/user')
+    router?.push('/')
   } catch (e) {
     console.error(e)
   }
