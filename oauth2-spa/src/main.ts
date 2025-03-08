@@ -2,7 +2,7 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import Auth from '@/auth'
+
 
 import App from './App.vue'
 import router from './router'
@@ -13,7 +13,7 @@ app.use(router)
 app.mount('#app')
 
 
-
+import Auth from '@/auth'
 declare module 'vue' {
     interface ComponentCustomProperties {
       $$auth: typeof Auth
@@ -22,4 +22,4 @@ declare module 'vue' {
   }
 
 
-  app.config.globalProperties.auth=Auth
+app.config.globalProperties.$auth=Auth

@@ -22,6 +22,7 @@
 
 <script setup lang="ts">
 import TokenComponent from '@/components/TokenComponent.vue'
+import { useOidcUser } from '@/stores/oidc'
 import { computed, getCurrentInstance, ref } from 'vue'
  
 
@@ -29,10 +30,10 @@ const auth = getCurrentInstance()?.appContext.config.globalProperties.$auth
 
 console.log("### auth: " + auth)
 
+const oidcUser = useOidcUser()
 
-
-const user = computed( ()   => auth.getUser())  
-const isAuthenticated = computed( () => auth.getUser().access_token !== undefined )
+const user = computed( ()   => oidcUser.user)  
+const isAuthenticated = computed( () => oidcUser.isAuthenticated )
 
 console.log("### isAuthenticated: " + isAuthenticated)
 

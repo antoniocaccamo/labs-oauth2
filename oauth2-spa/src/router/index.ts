@@ -20,9 +20,9 @@ const router = createRouter({
       component: () => import('@/views/AboutView.vue'),
     },
     {
-      path: '/auth', // Redirect URI
-      name: 'Authenticated',
-      component: () => import('@/views/AuthView.vue')
+      path: '/auth/callback', // Redirect URI
+      name: 'AuthCallback',
+      component: () => import('@/views/AuthCallbackView.vue')
     },
     {
       path: '/silent-refresh', // Token silent refresh URI
