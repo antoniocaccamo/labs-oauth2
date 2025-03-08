@@ -1,11 +1,30 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { computed } from 'vue'
+import { useOidcUser } from './stores/oidc'
+
+
+const oidcUser = useOidcUser()
+
+const user = computed( ()   => oidcUser.user)  
+const isAuthenticated = computed( () => oidcUser.isAuthenticated )
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    
+
+    <!-- Authenticated -->
+    <div v-if="isAuthenticated" class="wrapper">
+      <div class="mb-2 text-p2blue-700 text-2xl">Authenticated</div>
+      <div class="mb-6 text-p2blue-700 text-md">
+        <div>{{ user?.profile?.email }}</div>
+        <div>{{ user?.profile?.name }}</div>
+      </div>
+    </div>
+
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="65"  />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
@@ -16,9 +35,12 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
+    
   </header>
 
   <RouterView />
+
+  
 </template>
 
 <style scoped>
