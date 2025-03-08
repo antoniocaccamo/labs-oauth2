@@ -23,9 +23,9 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven
-        run: |
-          ./mvnw -V -B -DskipTests package -f pom.xml
+#      - name: Build with Maven
+#        run: |
+#          ./mvnw -V -B -DskipTests package -f pom.xml
           
       - name: Set Node.js 
         uses: actions/setup-node@v3

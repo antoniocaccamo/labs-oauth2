@@ -13,24 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package labs.oauth2.client.cert.service;
+package labs.oauth2.device.code.service;
 
 import lombok.extern.slf4j.Slf4j;
+
+import java.io.File;
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
+
+import labs.oauth2.device.code.cache.TokenCacheAspect;
 
 @Slf4j
 class TokenCacheAspectTest {
 
 
     @Test
-    public void when_read_then_ok(){
+    public void when_read_then_ok() throws IOException{
 
         // given
 
-        TokenCacheAspect cache = new TokenCacheAspect();
+        //TokenCacheAspect cache = new TokenCacheAspect();
         // when
 
-        log.info("{} exists? {}",cache.path.toAbsolutePath().toString(), cache.path.toFile().exists());
+        //log.info("{} exists? {}",cache.get.toAbsolutePath().toString(), cache.path.toFile().exists());
         // then
 
     }

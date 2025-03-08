@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
 
 import Auth from '@/auth'
 
@@ -9,7 +9,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: () => import('@/views/HomeView.vue'),
     },
     {
       path: '/about',
@@ -17,22 +17,22 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      component: () => import('@/views/AboutView.vue'),
     },
     {
-      path: '/auth', // Redirect URI
-      name: 'Authenticated',
-      component: () => import('../views/AuthView.vue')
+      path: '/auth/callback', // Redirect URI
+      name: 'AuthCallback',
+      component: () => import('@/views/AuthCallbackView.vue')
     },
     {
       path: '/silent-refresh', // Token silent refresh URI
       name: 'SilentRefresh',
-      component: () => import('../views/SilentRefreshView.vue')
+      component: () => import('@/views/SilentRefreshView.vue')
     },
     {
       path: '/user',
       name: 'User',
-      component:() => import('../views/User.vue'),
+      component:() => import('@/views/User.vue'),
       //meta:{ requiresAuth: true }
     }
     // { // Example of requiring auth on a page.
