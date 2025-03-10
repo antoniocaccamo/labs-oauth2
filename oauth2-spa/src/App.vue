@@ -32,6 +32,7 @@ const isAuthenticated = computed( () => oidcUser.isAuthenticated )
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/user">User </RouterLink>
+        <RouterLink to="/books" v-if="user" >Books </RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
