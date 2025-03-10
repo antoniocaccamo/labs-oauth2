@@ -23,10 +23,12 @@
 <script setup lang="ts">
 import TokenComponent from '@/components/TokenComponent.vue'
 import { useOidcUser } from '@/stores/oidc'
-import { computed, getCurrentInstance, ref } from 'vue'
+import { UserManager } from 'oidc-client-ts'
+import { computed, getCurrentInstance, ref, inject} from 'vue'
  
 
-const auth = getCurrentInstance()?.appContext.config.globalProperties.$auth
+//const auth = getCurrentInstance()?.appContext.config.globalProperties.$auth
+const auth:UserManager = inject('$auth')
 
 console.log("### auth: " + auth)
 

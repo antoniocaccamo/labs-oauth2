@@ -1,11 +1,11 @@
 import { UserManager, WebStorageStateStore , Log} from 'oidc-client-ts'
 import { useOidcUser } from '@/stores/oidc';
 
-Log.setLevel(Log.DEBUG)
+Log.setLevel(Log.WARN)
 Log.setLogger(console);
 
 export const kc = {
-  applicationUrl: "http://localhost:3000",
+//  applicationUrl: "http://localhost:3000", 
   authorityUrl: 'https://login.private.antoniocaccamo.work',
   realm       : 'labs',
   clientId    : 'lab-frontend-app'

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 
-import Auth from '@/auth'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,8 +32,14 @@ const router = createRouter({
     {
       path: '/user',
       name: 'User',
-      component:() => import('@/views/User.vue'),
+      component:() => import('@/views/UserView.vue'),
       //meta:{ requiresAuth: true }
+    },
+    {
+      path: '/books',
+      name: 'Books',
+      component:() => import('@/views/BooksView.vue'),
+     // meta:{ requiresAuth: true }
     }
     // { // Example of requiring auth on a page.
     //   path: '/auth-required',
@@ -45,7 +51,7 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const hasAuth = await Auth.getUser()
+  const hasAuth = false //await Auth.getUser()
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!hasAuth) {
       return next({

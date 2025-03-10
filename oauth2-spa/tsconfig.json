@@ -8,5 +8,6 @@
       "path": "./tsconfig.app.json"
     }
   ],
+  /* Alias resolving */
   
 }
