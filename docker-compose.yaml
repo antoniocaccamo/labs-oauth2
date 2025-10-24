@@ -1,0 +1,36 @@
+services:
+
+#  lab-oauth2-server:
+#    image: registry.private.antoniocaccamo.work/labs/lab-oauth2-server:1.0.0-quarkus
+#    container_name: lab-oauth2-server
+#    ports:
+#      - "8080:8080"
+#    env_file:
+#      - "${PWD}/vars.env"
+
+
+  lab-oauth2-spa:
+    image: registry.private.antoniocaccamo.work/labs/lab-oauth2-spa:1.0.0
+    container_name: lab-oauth2-spa
+    ports:
+      - "3000:80"
+    environment:
+      # Where your built files live in the container
+      - ASSET_DIR=/var/www/html
+      # Prefix used for placeholder detection
+      - APP_PREFIX=PREFIX_
+      - PREFIX_TENANT_ID=${TENANT_ID}
+      - PREFIX_LAB_OAUTH2_SPA_CLIENT_ID=${LAB_OAUTH2_SPA_CLIENT_ID}
+      - PREFIX_LAB_OAUTH2_RESOURCE_SERVER_CLIENT_ID=${LAB_OAUTH2_RESOURCE_SERVER_CLIENT_ID}
+      - PREFIX_LAB_API_BASE_URL=${LAB_API_BASE_URL}
+
+  lab-oauth2-resource-server:
+    image: registry.private.antoniocaccamo.work/labs/lab-oauth2-resource-server:1.0.0
+    container_name: lab-oauth2-resource-server
+    ports:
+      - "8080:8080"
+    environment:
+      - TENANT_ID=${TENANT_ID}
+      - LAB_OAUTH2_RESOURCE_SERVER_CLIENT_ID=${LAB_OAUTH2_RESOURCE_SERVER_CLIENT_ID}
+      - LAB_OAUTH2_RESOURCE_SERVER_CLIENT_SECRET=${LAB_OAUTH2_RESOURCE_SERVER_CLIENT_SECRET}
+      - LAB_OAUTH2_CORS_ORIGINS=${LAB_OAUTH2_CORS_ORIGINS}
