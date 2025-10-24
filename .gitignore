@@ -49,3 +49,5 @@ build/
 
 **/*cache.*
 **/*cache.*
+*/node*
+**/*.env
