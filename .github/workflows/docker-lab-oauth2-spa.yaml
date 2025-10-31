@@ -1,4 +1,4 @@
-name: Build and push Docker image
+name: creating lab-oauth2-spa docker image
 
 on:
   push:
@@ -52,12 +52,12 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v4
         with:
-          context: ./lab-oauth2-resource-server
-          file: ./lab-oauth2-resource-server/src/main/docker/Dockerfile.uber-jar
+          context: .
+          file: ./Dockerfile.lab-oauth2-spa
           push: true
           tags: |
-            ghcr.io/labs/lab-oauth2/${{ github.repository }}:${{ env.VERSION }}
-            ghcr.io/labs/lab-oauth2/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/${{ github.repository }}/lab-oauth2-spa:${{ env.VERSION }}
+            ghcr.io/${{ github.repository }}/lab-oauth2-spa:${{ github.sha }}
           # optionally enable build cache
           cache-from: type=gha
           cache-to: type=gha,mode=max
